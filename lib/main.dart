@@ -13,15 +13,15 @@ import 'package:uuid/uuid.dart';
 List<Annotation> pharms = [];
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+ runApp(const MyApp());
 
 
   final ReadJson read = ReadJson();
 
-  String rootFile = 'assets/PharmacyOnDuty.json';
-  final jsonData = await read.readJson(rootFile);
+  String Url = 'https://acikveri.kayseri.bel.tr/api/kbb/eczane';
+  final pharmacyList = await read.readJson(Url);
 
-  // Convert the JSON string to a Map
+  /* // Convert the JSON string to a Map
   Map<String, dynamic> jsonMap = json.decode(jsonData);
 
   // Extract the list of pharmacies from the "results" key in the JSON data
@@ -34,7 +34,7 @@ Future<void> main() async {
   for (var pharmacyJsonData in pharmacyListJson) {
     Pharmacy pharmacy = Pharmacy.fromJson(pharmacyJsonData);
     pharmacyList.add(pharmacy);
-  }
+  } */
 
   Position userPos = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 
